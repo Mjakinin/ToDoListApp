@@ -46,34 +46,42 @@ class ToDoItem extends StatelessWidget {
             ),
           ],
         ),
-        child: ListTile(
-          onTap: () {},
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-          tileColor: Colors.white,
-          title: RichText(
-            text: TextSpan(
-              children: [
-                TextSpan(
-                  text: '$index. ',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: tdBlack,
+        child: Row(
+          children: [
+            const SizedBox(width: 10), // Add space for the drag handle icon
+            const Icon(Icons.drag_handle), // Drag handler icon
+            Expanded(
+              child: ListTile(
+                onTap: () {},
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                tileColor: Colors.white,
+                title: RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: '$index. ',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: tdBlack,
+                        ),
+                      ),
+                      TextSpan(
+                        text: todo.todoText!,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: tdBlack,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                TextSpan(
-                  text: todo.todoText!,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: tdBlack,
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );
